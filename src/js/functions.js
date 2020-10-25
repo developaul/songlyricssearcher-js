@@ -25,10 +25,41 @@ const validateForm = () => {
     search.consultAPI();
 }
 
+const cleanHTML = () => {
+    while( UI.result.firstChild ) {
+        UI.result.removeChild( UI.result.firstChild );
+    }
+}
+
+const showSpinner = () => {
+    cleanHTML();
+
+    const spinner = document.createElement( 'div' );
+    spinner.classList.add( 'sk-fading-circle' );
+
+    spinner.innerHTML = `
+        <div class="sk-circle1 sk-circle"></div>
+        <div class="sk-circle2 sk-circle"></div>
+        <div class="sk-circle3 sk-circle"></div>
+        <div class="sk-circle4 sk-circle"></div>
+        <div class="sk-circle5 sk-circle"></div>
+        <div class="sk-circle6 sk-circle"></div>
+        <div class="sk-circle7 sk-circle"></div>
+        <div class="sk-circle8 sk-circle"></div>
+        <div class="sk-circle9 sk-circle"></div>
+        <div class="sk-circle10 sk-circle"></div>
+        <div class="sk-circle11 sk-circle"></div>
+        <div class="sk-circle12 sk-circle"></div>`;
+    
+    UI.result.appendChild( spinner );
+}
+
 const startApp = () => {
     UI.form.addEventListener( 'submit', validateForm );
 }
 
 export {
-    startApp
+    startApp,
+    showSpinner,
+    cleanHTML
 }
