@@ -1,4 +1,5 @@
 import * as UI from './references.js';
+import { API } from './classes/api.class.js';
 
 // Valida el formulario
 const validateForm = () => {
@@ -18,6 +19,10 @@ const validateForm = () => {
     }
     
     UI.form.reset();
+
+    // Consultamos la API
+    const search = new API( artist, song );
+    search.consultAPI();
 }
 
 const startApp = () => {
